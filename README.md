@@ -45,8 +45,8 @@ environment and ninja build.
 - On Fedora:
 sudo dnf install qt6-qtbase-devel qt6-qtwayland-devel ninja-build
 
--On Ubuntu
-sudo sudo apt install qt6-base-dev qt6-wayland-dev ninja-build
+- On Ubuntu
+sudo apt install qt6-base-dev qt6-wayland-dev ninja-build
 
 Then create a build directory, move to it and build
 ```
