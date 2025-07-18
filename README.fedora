@@ -1,0 +1,7 @@
+To build on Fedora 42:
+sudo dnf install qt6-qtbase-devel qt6-qtwayland-devel
+mkdir build
+cd build
+cmake -G "Ninja" -S "../" -B "../build" -DCMAKE_BUILD_TYPE="shared" -DCMAKE_BUILD_WITH_INSTALL_RPATH=on
+ninja
+
