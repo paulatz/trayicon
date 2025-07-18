@@ -40,22 +40,21 @@ The detailed steps are provided below. MacOS is not supported at the moment.
 
 #### Linux
 
-> The `setup` script only supports Arch Linux and Ubuntu 22.04. If you are
-> using a different distribution, you need to install the dependencies
-> yourself.
+To build against Qt6 system libraries, you need to install the Qt6 developement
+environment and ninja build.
+- On Fedora:
+sudo dnf install qt6-qtbase-devel qt6-qtwayland-devel ninja-build
 
-- Tested on Arch Linux and Ubuntu 22.04, with gcc 14 and clang 17.
+-On Ubuntu
+sudo sudo apt install qt6-base-dev qt6-wayland-dev ninja-build
 
-- Run the `./scripts/setup` script to install Qt6. You can choose to install the
-  `--static` Qt libraries (default) if you want to build a standalone
-  executable, or the `--shared` libraries if you want use dynamic linking. The
-  latter is faster, as it just downloads the libraries, instead of building
-  them from source.
-
-- Run the `./scripts/configure` script to configure the build.
-
-- Run the `cmake --build build --target package` command to build the program
-  and create a tarball with the executable and required libraries.
+Then create a build directory, move to it and build
+```
+mkdir build
+cd build
+cmake -G "Ninja" -S "../" -B "./" -DCMAKE_BUILD_TYPE="shared" -DCMAKE_BUILD_WITH_INSTALL_RPATH=on
+ninja
+```
 
 #### Windows
 
